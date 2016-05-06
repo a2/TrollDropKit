@@ -23,9 +23,5 @@
     "tvos": "9.0",
     "osx": "10.7"
   },
-  "frameworks": "Sharing",
-  "requires_arc": true,
-  "xcconfig": {
-    "FRAMEWORK_SEARCH_PATHS": "$(SDKROOT)/System/Library/PrivateFrameworks"
-  }
+  "requires_arc": true
 }

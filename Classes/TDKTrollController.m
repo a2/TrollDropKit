@@ -10,20 +10,20 @@
 #import "Sharing.h"
 #import "Trollface.h"
 
-static void browserCallback(SFBrowserRef browser, SFNodeRef node, CFArrayRef children, void *argA, void *argB, void *context);
-static void operationCallback(SFOperationRef operation, SFOperationEvent event, CFTypeRef results, void *context);
+static void browserCallback(TDKSFBrowserRef browser, TDKSFNodeRef node, CFArrayRef children, void *argA, void *argB, void *context);
+static void operationCallback(TDKSFOperationRef operation, TDKSFOperationEvent event, CFTypeRef results, void *context);
 static void dictionaryValueApplier(const void *key, const void *value, void *context);
 
 @implementation TDKPerson
 
 + (instancetype)personWithNode:(id)node
 {
-    SFNodeRef nodeRef = (__bridge SFNodeRef)node;
+    TDKSFNodeRef nodeRef = (__bridge TDKSFNodeRef)node;
 
     TDKPerson *person = [[self alloc] init];
-    person->_displayName = (__bridge_transfer id)SFNodeCopyDisplayName(nodeRef);
-    person->_computerName = (__bridge_transfer id)SFNodeCopyComputerName(nodeRef);
-    person->_secondaryName = (__bridge_transfer id)SFNodeCopySecondaryName(nodeRef);
+    person->_displayName = (__bridge_transfer id)TDKSFNodeCopyDisplayName(nodeRef);
+    person->_computerName = (__bridge_transfer id)TDKSFNodeCopyComputerName(nodeRef);
+    person->_secondaryName = (__bridge_transfer id)TDKSFNodeCopySecondaryName(nodeRef);
 
     return person;
 }
@@ -32,17 +32,24 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
 
 @interface TDKTrollController ()
 
-@property (nonatomic, nullable) SFBrowserRef browser;
-@property (nonatomic, nullable, copy) NSSet /* <SFNodeRef> */ *people;
+@property (nonatomic, nullable) TDKSFBrowserRef browser;
+@property (nonatomic, nullable, copy) NSSet /* <TDKSFNodeRef> */ *people;
 
 @end
 
 @implementation TDKTrollController
 {
-    CFMutableDictionaryRef /* <SFNodeRef, SFOperationRef> */ _operations;
+    CFMutableDictionaryRef /* <TDKSFNodeRef, TDKSFOperationRef> */ _operations;
 }
 
 @synthesize sharedURL = _sharedURL;
+
++ (void)initialize
+{
+    if (self == [TDKTrollController class]) {
+        TDKSharingInitialize();
+    }
+}
 
 - (instancetype)init
 {
@@ -81,13 +88,13 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
     _sharedURL = newURL ? [newURL copy] : [TDKTrollController writeTrollfaceToTemporaryFile];
 }
 
-- (void)setBrowser:(SFBrowserRef)browser
+- (void)setBrowser:(TDKSFBrowserRef)browser
 {
     // Release old browser.
     if (_browser) CFRelease(_browser);
 
     // Retain new browser - if there is one.
-    _browser = browser ? (SFBrowserRef)CFRetain(browser) : NULL;
+    _browser = browser ? (TDKSFBrowserRef)CFRetain(browser) : NULL;
 }
 
 #pragma mark - Node Operations
@@ -109,9 +116,9 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
     }
 }
 
-+ (id)propertyFromNode:(id)node withCopyFunction:(CFTypeRef (*)(SFNodeRef))function
++ (id)propertyFromNode:(id)node withCopyFunction:(CFTypeRef (*)(TDKSFNodeRef))function
 {
-    return (__bridge_transfer id)function((__bridge SFNodeRef)node);
+    return (__bridge_transfer id)function((__bridge TDKSFNodeRef)node);
 }
 
 /// If there is a \c sharedURLOverrideHandler and it returns a non-nil URL, prefer that over the \c sharedURL.
@@ -148,15 +155,15 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
 {
     if (self.running) return;
 
-    SFBrowserClientContext clientContext = {
+    TDKSFBrowserClientContext clientContext = {
         .version = 0,
         .info = (__bridge void *)self,
     };
 
-    SFBrowserRef browser = SFBrowserCreate(kCFAllocatorDefault, kSFBrowserKindAirDrop);
-    SFBrowserSetClient(browser, &browserCallback, &clientContext);
-    SFBrowserSetDispatchQueue(browser, dispatch_get_main_queue());
-    SFBrowserOpenNode(browser, NULL, NULL, 0);
+    TDKSFBrowserRef browser = TDKSFBrowserCreate(kCFAllocatorDefault, kTDKSFBrowserKindAirDrop);
+    TDKSFBrowserSetClient(browser, &browserCallback, &clientContext);
+    TDKSFBrowserSetDispatchQueue(browser, dispatch_get_main_queue());
+    TDKSFBrowserOpenNode(browser, NULL, NULL, 0);
     self.browser = browser;
 }
 
@@ -169,34 +176,34 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 
     // Cancel pending operations.
-    CFDictionaryApplyFunction(_operations, &dictionaryValueApplier, &SFOperationCancel);
+    CFDictionaryApplyFunction(_operations, &dictionaryValueApplier, &TDKSFOperationCancel);
 
     // Empty operations map.
     CFDictionaryRemoveAllValues(_operations);
 
     // Invalidate the browser.
-    SFBrowserInvalidate(self.browser);
+    TDKSFBrowserInvalidate(self.browser);
     self.browser = NULL;
 }
 
 #pragma mark - Troll
 
-/// Troll the person/device identified by \c node (\c SFNodeRef)
+/// Troll the person/device identified by \c node (\c TDKSFNodeRef)
 - (void)troll:(id)node
 {
     NSArray *items = @[[self fileURLForNode:node]];
 
-    SFOperationClientContext clientContext = {
+    TDKSFOperationClientContext clientContext = {
         .version = 0,
         .info = (__bridge void *)self,
     };
 
-    SFOperationRef operation = SFOperationCreate(kCFAllocatorDefault, kSFOperationKindSender, NULL, NULL);
-    SFOperationSetClient(operation, &operationCallback, &clientContext);
-    SFOperationSetProperty(operation, kSFOperationNodeKey, (__bridge SFNodeRef)node);
-    SFOperationSetProperty(operation, kSFOperationItemsKey, (__bridge CFArrayRef)items);
-    SFOperationSetDispatchQueue(operation, dispatch_get_main_queue());
-    SFOperationResume(operation);
+    TDKSFOperationRef operation = TDKSFOperationCreate(kCFAllocatorDefault, kTDKSFOperationKindSender, NULL, NULL);
+    TDKSFOperationSetClient(operation, &operationCallback, &clientContext);
+    TDKSFOperationSetProperty(operation, kTDKSFOperationNodeKey, (__bridge TDKSFNodeRef)node);
+    TDKSFOperationSetProperty(operation, kTDKSFOperationItemsKey, (__bridge CFArrayRef)items);
+    TDKSFOperationSetDispatchQueue(operation, dispatch_get_main_queue());
+    TDKSFOperationResume(operation);
 
     [self setOperation:(__bridge_transfer id)operation forNode:node];
 }
@@ -206,9 +213,9 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
 /// Browser callback.
 /// Invoked when a child is added or removed from the browser's root node.
 /// Invoked from the C function at EOF.
-- (void)handleBrowserCallback:(SFBrowserRef)browser node:(SFNodeRef)node children:(CFArrayRef)children
+- (void)handleBrowserCallback:(TDKSFBrowserRef)browser node:(TDKSFNodeRef)node children:(CFArrayRef)children
 {
-    NSArray *nodes = (__bridge_transfer NSArray *)SFBrowserCopyChildren(browser, NULL);
+    NSArray *nodes = (__bridge_transfer NSArray *)TDKSFBrowserCopyChildren(browser, NULL);
     NSMutableSet *newPeople = [NSMutableSet setWithCapacity:nodes.count];
 
     for (id node in nodes) {
@@ -228,19 +235,19 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
 /// Operation callback.
 /// Invoked when the operation triggers an event.
 /// Invoked from the C function at EOF.
-- (void)handleOperationCallback:(SFOperationRef)operation event:(SFOperationEvent)event results:(CFTypeRef)results
+- (void)handleOperationCallback:(TDKSFOperationRef)operation event:(TDKSFOperationEvent)event results:(CFTypeRef)results
 {
     switch (event) {
-        case kSFOperationEventAskUser:
+        case kTDKSFOperationEventAskUser:
             // Seems that .AskUser requires the operation to be resumed.
-            SFOperationResume(operation);
+            TDKSFOperationResume(operation);
             break;
 
-        case kSFOperationEventCanceled:
-        case kSFOperationEventErrorOccurred:
-        case kSFOperationEventFinished: {
+        case kTDKSFOperationEventCanceled:
+        case kTDKSFOperationEventErrorOccurred:
+        case kTDKSFOperationEventFinished: {
             // Schedule a new trolling if the operation has ended.
-            id node = (__bridge_transfer id)SFOperationCopyProperty(operation, kSFOperationNodeKey);
+            id node = (__bridge_transfer id)TDKSFOperationCopyProperty(operation, kTDKSFOperationNodeKey);
             [self setOperation:nil forNode:node];
             [self performSelector:@selector(troll:) withObject:node afterDelay:self.rechargeDuration];
             break;
@@ -275,11 +282,11 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
 
 @end
 
-static void browserCallback(SFBrowserRef browser, SFNodeRef node, CFArrayRef children, void *argA, void *argB, void *context) {
+static void browserCallback(TDKSFBrowserRef browser, TDKSFNodeRef node, CFArrayRef children, void *argA, void *argB, void *context) {
     [(__bridge TDKTrollController *)context handleBrowserCallback:browser node:node children:children];
 }
 
-static void operationCallback(SFOperationRef operation, SFOperationEvent event, CFTypeRef results, void *context) {
+static void operationCallback(TDKSFOperationRef operation, TDKSFOperationEvent event, CFTypeRef results, void *context) {
     [(__bridge TDKTrollController *)context handleOperationCallback:operation event:event results:results];
 }
 

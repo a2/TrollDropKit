@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="trollface.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9jd-s9-nGc">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="trollface.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9jd-s9-nGc">
                                 <rect key="frame" x="69" y="111" width="462" height="377"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9jd-s9-nGc" secondAttribute="height" multiplier="462:377" id="USW-RK-hgr"/>
