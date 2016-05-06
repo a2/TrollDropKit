@@ -2,6 +2,7 @@
   "name": "TrollDropKit",
   "version": "0.1.0",
   "summary": "Send trollfaces via AirDrop to nearby devices.",
+  "description": "Scans for nearby devices with AirDrop enabled and sends them a trollface image (or a file of your choice).",
   "homepage": "https://github.com/a2/TrollDropKit",
   "license": "MIT",
   "authors": {
@@ -17,15 +18,14 @@
     "Classes/**/*.{h,m}"
   ],
   "public_header_files": "Classes/TDKTrollController.h",
+  "platforms": {
+    "ios": "7.0",
+    "tvos": "9.0",
+    "osx": "10.7"
+  },
   "frameworks": "Sharing",
   "requires_arc": true,
   "xcconfig": {
     "FRAMEWORK_SEARCH_PATHS": "$(SDKROOT)/System/Library/PrivateFrameworks"
-  },
-  "platforms": {
-    "osx": null,
-    "ios": null,
-    "tvos": null,
-    "watchos": null
   }
 }

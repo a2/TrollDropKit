@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BE3003660F5F3E9A3584D8F1BD3498C0'
-               BlueprintName = 'TrollDropKit'
+               BlueprintIdentifier = 'FF4CF4A14B7A1FE145AAF77749CE6507'
+               BlueprintName = 'TrollDropKit-iOS'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libTrollDropKit.a'>
+               BuildableName = 'libTrollDropKit-iOS.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
