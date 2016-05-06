@@ -94,7 +94,7 @@ static void __TDKSharingInitialize(void *context) {
     CFStringRef functionNames[] = { FUNCTIONS };
 #undef WRAPPER
 
-#define WRAPPER(X) (void **)&TDK ## X,
+#define WRAPPER(X) (void (**)(void))&TDK ## X,
     void (**functionDestinations[])(void) = { FUNCTIONS };
 #undef WRAPPER
 
