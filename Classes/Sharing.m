@@ -41,6 +41,7 @@ static void __TDKSharingInitialize(void *context) {
 
     CFErrorRef error = NULL;
     if (!CFBundleLoadExecutableAndReturnError(bundle, &error)) {
+        CFRelease(bundle);
         return;
     }
 
