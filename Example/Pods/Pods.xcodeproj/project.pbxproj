@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E133E5D991832985A259166386E29A0 /* Sharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 190AA7F81F06949AEE94CEE1F7739D9F /* Sharing.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2094CCEB310C54E67F0B48EBB100EF0A /* TDKTrollController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99CAFB0B5E9C925BA0CA2C1E28DD902F /* TDKTrollController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3771797475C0AF24A73036686953D48E /* Sharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5899835A8BFFD42B3FA9BEB539F3947F /* Sharing.framework */; };
+		41667777F5D64CF62A0897BA9F7DABC3 /* Trollface.h in Headers */ = {isa = PBXBuildFile; fileRef = D926A76CCB87DCEFB268EAADF5ECD9F9 /* Trollface.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5B120BF99C0278315412374DBC6FCA33 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F52B176C55DAB202B397DBE2E29F2B /* Cocoa.framework */; };
+		5D66D608DBF7193D4C2C04FDC81C98E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F52B176C55DAB202B397DBE2E29F2B /* Cocoa.framework */; };
+		66FF46160C7963E5A4B3777797E0E5B0 /* TrollDropKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA0F47DA4A94034611DD8857852577C /* TrollDropKit-dummy.m */; };
+		B249AADC8130EE43D1A423CBE63B53AE /* Pods-TrollDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 440C8F876AB8094280D84E38244E1931 /* Pods-TrollDrop-dummy.m */; };
+		B86014422ACC08A4F58AD90CD44FAB75 /* TDKTrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32D1F1C6CB56CB970255BCFE88449AD /* TDKTrollController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBA6948FDBFC6895FC80F0B2B58C835B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE3003660F5F3E9A3584D8F1BD3498C0;
+			remoteInfo = TrollDropKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08062FA3A5D8A1A2533773D5F1B3B8CA /* Pods-TrollDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TrollDrop.release.xcconfig"; sourceTree = "<group>"; };
+		190AA7F81F06949AEE94CEE1F7739D9F /* Sharing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Sharing.h; sourceTree = "<group>"; };
+		440C8F876AB8094280D84E38244E1931 /* Pods-TrollDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TrollDrop-dummy.m"; sourceTree = "<group>"; };
+		52368833461CBD4F0E16508CB74C2A43 /* Pods-TrollDrop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TrollDrop.debug.xcconfig"; sourceTree = "<group>"; };
+		5899835A8BFFD42B3FA9BEB539F3947F /* Sharing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sharing.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Sharing.framework; sourceTree = DEVELOPER_DIR; };
+		7819C95BE87336DF4C17439F98F179DC /* Pods-TrollDrop-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TrollDrop-resources.sh"; sourceTree = "<group>"; };
+		83FC81B9B7AE04DDBB4E1DBB9F26D356 /* libTrollDropKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTrollDropKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99CAFB0B5E9C925BA0CA2C1E28DD902F /* TDKTrollController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TDKTrollController.h; sourceTree = "<group>"; };
+		A2FF7B34BABA257F0D690C961A132FAA /* Pods-TrollDrop-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TrollDrop-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A85EF9D7234D94F9FF087446514F5FF3 /* TrollDropKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TrollDropKit.xcconfig; sourceTree = "<group>"; };
+		BCA0F47DA4A94034611DD8857852577C /* TrollDropKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TrollDropKit-dummy.m"; sourceTree = "<group>"; };
+		C65484562FB1AF87537B16C3936E2B37 /* TrollDropKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TrollDropKit-prefix.pch"; sourceTree = "<group>"; };
+		C6E7F633F74A32E57C95A244549A62BC /* Pods-TrollDrop-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TrollDrop-acknowledgements.plist"; sourceTree = "<group>"; };
+		CDDECD1C29C1DFFB03624D82682CDB11 /* Pods-TrollDrop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TrollDrop-frameworks.sh"; sourceTree = "<group>"; };
+		D6F52B176C55DAB202B397DBE2E29F2B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D926A76CCB87DCEFB268EAADF5ECD9F9 /* Trollface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Trollface.h; sourceTree = "<group>"; };
+		E2127B2E4F89CEAEECE9274DD15AE8A1 /* libPods-TrollDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrollDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E32D1F1C6CB56CB970255BCFE88449AD /* TDKTrollController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TDKTrollController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D67E92588A1E695320AD06A00D94B9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D66D608DBF7193D4C2C04FDC81C98E9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		529F7AFFF987CA82B368EED66403764D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B120BF99C0278315412374DBC6FCA33 /* Cocoa.framework in Frameworks */,
+				3771797475C0AF24A73036686953D48E /* Sharing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B091065F7EBF6514E15F2FAD8B24847 /* Pods-TrollDrop */ = {
+			isa = PBXGroup;
+			children = (
+				A2FF7B34BABA257F0D690C961A132FAA /* Pods-TrollDrop-acknowledgements.markdown */,
+				C6E7F633F74A32E57C95A244549A62BC /* Pods-TrollDrop-acknowledgements.plist */,
+				440C8F876AB8094280D84E38244E1931 /* Pods-TrollDrop-dummy.m */,
+				CDDECD1C29C1DFFB03624D82682CDB11 /* Pods-TrollDrop-frameworks.sh */,
+				7819C95BE87336DF4C17439F98F179DC /* Pods-TrollDrop-resources.sh */,
+				52368833461CBD4F0E16508CB74C2A43 /* Pods-TrollDrop.debug.xcconfig */,
+				08062FA3A5D8A1A2533773D5F1B3B8CA /* Pods-TrollDrop.release.xcconfig */,
+			);
+			name = "Pods-TrollDrop";
+			path = "Target Support Files/Pods-TrollDrop";
+			sourceTree = "<group>";
+		};
+		3853DE022332E61F561BAB12A98090F6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				517E2007B00DC86DE6AEDD3891296AB7 /* TrollDropKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		517E2007B00DC86DE6AEDD3891296AB7 /* TrollDropKit */ = {
+			isa = PBXGroup;
+			children = (
+				D648418AA94AD312445688C099680869 /* Classes */,
+				997D50DF36094EF782651C3F6DD3142B /* Support Files */,
+			);
+			name = TrollDropKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		6005F94466174F8ABEFB2B6D52E9ED15 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B091065F7EBF6514E15F2FAD8B24847 /* Pods-TrollDrop */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				3853DE022332E61F561BAB12A98090F6 /* Development Pods */,
+				D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */,
+				BA04563F159DDB788C7029AF0C4A2593 /* Products */,
+				6005F94466174F8ABEFB2B6D52E9ED15 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		997D50DF36094EF782651C3F6DD3142B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A85EF9D7234D94F9FF087446514F5FF3 /* TrollDropKit.xcconfig */,
+				BCA0F47DA4A94034611DD8857852577C /* TrollDropKit-dummy.m */,
+				C65484562FB1AF87537B16C3936E2B37 /* TrollDropKit-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/TrollDropKit";
+			sourceTree = "<group>";
+		};
+		BA04563F159DDB788C7029AF0C4A2593 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2127B2E4F89CEAEECE9274DD15AE8A1 /* libPods-TrollDrop.a */,
+				83FC81B9B7AE04DDBB4E1DBB9F26D356 /* libTrollDropKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D648418AA94AD312445688C099680869 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				190AA7F81F06949AEE94CEE1F7739D9F /* Sharing.h */,
+				99CAFB0B5E9C925BA0CA2C1E28DD902F /* TDKTrollController.h */,
+				E32D1F1C6CB56CB970255BCFE88449AD /* TDKTrollController.m */,
+				D926A76CCB87DCEFB268EAADF5ECD9F9 /* Trollface.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D648CE86F139C7CCFD55D5B8A03BE74B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8F1332D3FCC6790E187A3F5C36589F2 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8F1332D3FCC6790E187A3F5C36589F2 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				D6F52B176C55DAB202B397DBE2E29F2B /* Cocoa.framework */,
+				5899835A8BFFD42B3FA9BEB539F3947F /* Sharing.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AB751C3E836E02716772282D5009EC39 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E133E5D991832985A259166386E29A0 /* Sharing.h in Headers */,
+				2094CCEB310C54E67F0B48EBB100EF0A /* TDKTrollController.h in Headers */,
+				41667777F5D64CF62A0897BA9F7DABC3 /* Trollface.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		304C1A2BA50B2897F7ACD21F5EDFBF6C /* Pods-TrollDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52C089A0362E96133456754A99653422 /* Build configuration list for PBXNativeTarget "Pods-TrollDrop" */;
+			buildPhases = (
+				D654A3DAED116D3516D38BAB534A883B /* Sources */,
+				1D67E92588A1E695320AD06A00D94B9C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9506B4D154BE5321E0D4CAC2F3E864D6 /* PBXTargetDependency */,
+			);
+			name = "Pods-TrollDrop";
+			productName = "Pods-TrollDrop";
+			productReference = E2127B2E4F89CEAEECE9274DD15AE8A1 /* libPods-TrollDrop.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BE3003660F5F3E9A3584D8F1BD3498C0 /* TrollDropKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F987912ECF91EF307F4D7B583CA94B7F /* Build configuration list for PBXNativeTarget "TrollDropKit" */;
+			buildPhases = (
+				4B63D40C437701EFD401EBE031579AA6 /* Sources */,
+				529F7AFFF987CA82B368EED66403764D /* Frameworks */,
+				AB751C3E836E02716772282D5009EC39 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrollDropKit;
+			productName = TrollDropKit;
+			productReference = 83FC81B9B7AE04DDBB4E1DBB9F26D356 /* libTrollDropKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = BA04563F159DDB788C7029AF0C4A2593 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				304C1A2BA50B2897F7ACD21F5EDFBF6C /* Pods-TrollDrop */,
+				BE3003660F5F3E9A3584D8F1BD3498C0 /* TrollDropKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B63D40C437701EFD401EBE031579AA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86014422ACC08A4F58AD90CD44FAB75 /* TDKTrollController.m in Sources */,
+				66FF46160C7963E5A4B3777797E0E5B0 /* TrollDropKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D654A3DAED116D3516D38BAB534A883B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B249AADC8130EE43D1A423CBE63B53AE /* Pods-TrollDrop-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9506B4D154BE5321E0D4CAC2F3E864D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TrollDropKit;
+			target = BE3003660F5F3E9A3584D8F1BD3498C0 /* TrollDropKit */;
+			targetProxy = CBA6948FDBFC6895FC80F0B2B58C835B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0577E960F68FF02722D75DA2D211E3A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		303186EEB2AB953E2F95EF3AC66CAC4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A85EF9D7234D94F9FF087446514F5FF3 /* TrollDropKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TrollDropKit/TrollDropKit-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		578820E498FFD85CA5D93A33D365FBED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6850BDDB03F0F8397CC6544093C47929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08062FA3A5D8A1A2533773D5F1B3B8CA /* Pods-TrollDrop.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		914680F5CE59935A64DEDA3DD528D706 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52368833461CBD4F0E16508CB74C2A43 /* Pods-TrollDrop.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AB7F34B7FAC2C9FA9740BCF7F7DDC68B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A85EF9D7234D94F9FF087446514F5FF3 /* TrollDropKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TrollDropKit/TrollDropKit-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0577E960F68FF02722D75DA2D211E3A8 /* Debug */,
+				578820E498FFD85CA5D93A33D365FBED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52C089A0362E96133456754A99653422 /* Build configuration list for PBXNativeTarget "Pods-TrollDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				914680F5CE59935A64DEDA3DD528D706 /* Debug */,
+				6850BDDB03F0F8397CC6544093C47929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F987912ECF91EF307F4D7B583CA94B7F /* Build configuration list for PBXNativeTarget "TrollDropKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				303186EEB2AB953E2F95EF3AC66CAC4E /* Debug */,
+				AB7F34B7FAC2C9FA9740BCF7F7DDC68B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

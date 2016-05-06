@@ -1,0 +1,16 @@
+PODS:
+  - TrollDropKit (0.1.0)
+
+DEPENDENCIES:
+  - TrollDropKit (from `../`)
+
+EXTERNAL SOURCES:
+  TrollDropKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  TrollDropKit: ecaf99d68fd14cd7b80dc0a4c7335ce262d17685
+
+PODFILE CHECKSUM: 1895cae97e649e6c73046f1f34ca9c71b1563577
+
+COCOAPODS: 1.0.0.rc.2

@@ -1,0 +1,3 @@
+target 'TrollDrop' do
+  pod 'TrollDropKit', path: '../'
+end
