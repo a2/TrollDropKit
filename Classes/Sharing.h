@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-static CFStringRef kTDKSFBrowserKindAirDrop;
-static CFStringRef kTDKSFOperationKindSender;
-static CFStringRef kTDKSFOperationItemsKey;
-static CFStringRef kTDKSFOperationNodeKey;
+extern CFStringRef kTDKSFBrowserKindAirDrop;
+extern CFStringRef kTDKSFOperationKindSender;
+extern CFStringRef kTDKSFOperationItemsKey;
+extern CFStringRef kTDKSFOperationNodeKey;
 
 typedef CF_ENUM(CFIndex, TDKSFOperationEvent) {
     kTDKSFOperationEventUnknown,
@@ -53,24 +53,24 @@ struct TDKSFOperationClientContext {
 };
 typedef struct TDKSFOperationClientContext TDKSFOperationClientContext;
 
-static TDKSFBrowserRef (*TDKSFBrowserCreate)(CFAllocatorRef alloc, CFStringRef kind);
-static void (*TDKSFBrowserSetClient)(TDKSFBrowserRef browser, void *callback, TDKSFBrowserClientContext *clientContext);
-static void (*TDKSFBrowserSetDispatchQueue)(TDKSFBrowserRef browser, dispatch_queue_t queue);
-static void (*TDKSFBrowserOpenNode)(TDKSFBrowserRef browser, TDKSFNodeRef node, void *protocol, CFOptionFlags flags);
-static CFArrayRef (*TDKSFBrowserCopyChildren)(TDKSFBrowserRef browser, TDKSFNodeRef node);
-static void (*TDKSFBrowserInvalidate)(TDKSFBrowserRef browser);
-static TDKSFNodeRef (*TDKSFBrowserGetRootNode)(TDKSFBrowserRef browser);
+extern TDKSFBrowserRef (*TDKSFBrowserCreate)(CFAllocatorRef alloc, CFStringRef kind);
+extern void (*TDKSFBrowserSetClient)(TDKSFBrowserRef browser, void *callback, TDKSFBrowserClientContext *clientContext);
+extern void (*TDKSFBrowserSetDispatchQueue)(TDKSFBrowserRef browser, dispatch_queue_t queue);
+extern void (*TDKSFBrowserOpenNode)(TDKSFBrowserRef browser, TDKSFNodeRef node, void *protocol, CFOptionFlags flags);
+extern CFArrayRef (*TDKSFBrowserCopyChildren)(TDKSFBrowserRef browser, TDKSFNodeRef node);
+extern void (*TDKSFBrowserInvalidate)(TDKSFBrowserRef browser);
+extern TDKSFNodeRef (*TDKSFBrowserGetRootNode)(TDKSFBrowserRef browser);
 
-static CFStringRef (*TDKSFNodeCopyDisplayName)(TDKSFNodeRef node);
-static CFStringRef (*TDKSFNodeCopyComputerName)(TDKSFNodeRef node);
-static CFStringRef (*TDKSFNodeCopySecondaryName)(TDKSFNodeRef node);
+extern CFStringRef (*TDKSFNodeCopyDisplayName)(TDKSFNodeRef node);
+extern CFStringRef (*TDKSFNodeCopyComputerName)(TDKSFNodeRef node);
+extern CFStringRef (*TDKSFNodeCopySecondaryName)(TDKSFNodeRef node);
 
-static TDKSFOperationRef (*TDKSFOperationCreate)(CFAllocatorRef alloc, CFStringRef kind, void *argA, void *argB);
-static void (*TDKSFOperationSetClient)(TDKSFOperationRef operation, void *callback, TDKSFOperationClientContext *context);
-static void (*TDKSFOperationSetDispatchQueue)(TDKSFOperationRef operation, dispatch_queue_t queue);
-static CFTypeRef (*TDKSFOperationCopyProperty)(TDKSFOperationRef operation, CFStringRef name);
-static void (*TDKSFOperationSetProperty)(TDKSFOperationRef operation, CFStringRef name, CFTypeRef value);
-static void (*TDKSFOperationResume)(TDKSFOperationRef operation);
-static void (*TDKSFOperationCancel)(TDKSFOperationRef operation);
+extern TDKSFOperationRef (*TDKSFOperationCreate)(CFAllocatorRef alloc, CFStringRef kind, void *argA, void *argB);
+extern void (*TDKSFOperationSetClient)(TDKSFOperationRef operation, void *callback, TDKSFOperationClientContext *context);
+extern void (*TDKSFOperationSetDispatchQueue)(TDKSFOperationRef operation, dispatch_queue_t queue);
+extern CFTypeRef (*TDKSFOperationCopyProperty)(TDKSFOperationRef operation, CFStringRef name);
+extern void (*TDKSFOperationSetProperty)(TDKSFOperationRef operation, CFStringRef name, CFTypeRef value);
+extern void (*TDKSFOperationResume)(TDKSFOperationRef operation);
+extern void (*TDKSFOperationCancel)(TDKSFOperationRef operation);
 
 void TDKSharingInitialize(void);

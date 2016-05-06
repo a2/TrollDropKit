@@ -32,15 +32,15 @@ static void configureHandlers() {
 int main(int argc, const char *argv[]) {
     configureHandlers();
 
-    NS_VALID_UNTIL_END_OF_SCOPE TDKTrollController *troller = [[TDKTrollController alloc] init];
+    NS_VALID_UNTIL_END_OF_SCOPE TDKTrollController *trollController = [[TDKTrollController alloc] init];
 
     printf("Begin the trolling...\n");
-    [troller start];
+    [trollController start];
 
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     while (shouldKeepRunning && [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]]);
 
-    [troller stop];
+    [trollController stop];
     printf("Trolling stopped.\n");
 
     return 0;

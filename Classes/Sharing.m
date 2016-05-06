@@ -8,11 +8,41 @@
 
 #import "Sharing.h"
 
+CFStringRef kTDKSFBrowserKindAirDrop;
+CFStringRef kTDKSFOperationKindSender;
+CFStringRef kTDKSFOperationItemsKey;
+CFStringRef kTDKSFOperationNodeKey;
+
+TDKSFBrowserRef (*TDKSFBrowserCreate)(CFAllocatorRef alloc, CFStringRef kind);
+void (*TDKSFBrowserSetClient)(TDKSFBrowserRef browser, void *callback, TDKSFBrowserClientContext *clientContext);
+void (*TDKSFBrowserSetDispatchQueue)(TDKSFBrowserRef browser, dispatch_queue_t queue);
+void (*TDKSFBrowserOpenNode)(TDKSFBrowserRef browser, TDKSFNodeRef node, void *protocol, CFOptionFlags flags);
+CFArrayRef (*TDKSFBrowserCopyChildren)(TDKSFBrowserRef browser, TDKSFNodeRef node);
+void (*TDKSFBrowserInvalidate)(TDKSFBrowserRef browser);
+TDKSFNodeRef (*TDKSFBrowserGetRootNode)(TDKSFBrowserRef browser);
+
+CFStringRef (*TDKSFNodeCopyDisplayName)(TDKSFNodeRef node);
+CFStringRef (*TDKSFNodeCopyComputerName)(TDKSFNodeRef node);
+CFStringRef (*TDKSFNodeCopySecondaryName)(TDKSFNodeRef node);
+
+TDKSFOperationRef (*TDKSFOperationCreate)(CFAllocatorRef alloc, CFStringRef kind, void *argA, void *argB);
+void (*TDKSFOperationSetClient)(TDKSFOperationRef operation, void *callback, TDKSFOperationClientContext *context);
+void (*TDKSFOperationSetDispatchQueue)(TDKSFOperationRef operation, dispatch_queue_t queue);
+CFTypeRef (*TDKSFOperationCopyProperty)(TDKSFOperationRef operation, CFStringRef name);
+void (*TDKSFOperationSetProperty)(TDKSFOperationRef operation, CFStringRef name, CFTypeRef value);
+void (*TDKSFOperationResume)(TDKSFOperationRef operation);
+void (*TDKSFOperationCancel)(TDKSFOperationRef operation);
+
 static void __TDKSharingInitialize(void *context) {
     CFURLRef bundleURL = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, CFSTR("/System/Library/PrivateFrameworks/Sharing.framework"), kCFURLPOSIXPathStyle, false);
     CFBundleRef bundle = CFBundleCreate(kCFAllocatorDefault, bundleURL);
     CFRelease(bundleURL);
     if (!bundle) return;
+
+    CFErrorRef error = NULL;
+    if (!CFBundleLoadExecutableAndReturnError(bundle, &error)) {
+        return;
+    }
 
 #define SYMBOLS \
     WRAPPER(SFBrowserKindAirDrop)  \
@@ -63,19 +93,19 @@ static void __TDKSharingInitialize(void *context) {
     CFStringRef functionNames[] = { FUNCTIONS };
 #undef WRAPPER
 
-#define WRAPPER(X) (void *)&TDK ## X,
-    const void **functionDestinations[] = { FUNCTIONS };
+#define WRAPPER(X) (void **)&TDK ## X,
+    void (**functionDestinations[])(void) = { FUNCTIONS };
 #undef WRAPPER
 
     CFArrayRef functionNamesArray = CFArrayCreate(kCFAllocatorDefault, (const void **)functionNames, sizeof(functionNames) / sizeof(*functionNames), &kCFTypeArrayCallBacks);
 
-    void *functions[sizeof(functionNames) / sizeof(*functionNames)];
-    CFBundleGetFunctionPointersForNames(bundle, functionNamesArray, functions);
+    void (*functions[sizeof(functionNames) / sizeof(*functionNames)])(void);
+    CFBundleGetFunctionPointersForNames(bundle, functionNamesArray, (void **)functions);
     CFRelease(functionNamesArray);
 
     for (size_t i = 0; i < sizeof(functionNames) / sizeof(*functionNames); i++) {
         NSCAssert(functions[i] != NULL, @"Could not find pointer for function named \"%@\"", (__bridge id)functionNames[i]);
-        *functionDestinations[i] = functions[i];
+        *(functionDestinations[i]) = functions[i];
     }
 #undef FUNCTIONS
 
