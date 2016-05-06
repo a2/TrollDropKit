@@ -1,6 +1,6 @@
 {
   "name": "TrollDropKit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "Send trollfaces via AirDrop to nearby devices.",
   "description": "Scans for nearby devices with AirDrop enabled and sends them a trollface image (or a file of your choice).",
   "homepage": "https://github.com/a2/TrollDropKit",
@@ -11,7 +11,7 @@
   "social_media_url": "https://twitter.com/a2",
   "source": {
     "git": "https://github.com/a2/TrollDropKit.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "source_files": [
     "Classes",
