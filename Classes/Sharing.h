@@ -10,6 +10,7 @@
 
 extern CFStringRef kTDKSFBrowserKindAirDrop;
 extern CFStringRef kTDKSFOperationKindSender;
+extern CFStringRef kTDKSFOperationFileIconKey;
 extern CFStringRef kTDKSFOperationItemsKey;
 extern CFStringRef kTDKSFOperationNodeKey;
 

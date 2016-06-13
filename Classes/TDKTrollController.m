@@ -191,19 +191,27 @@ static void dictionaryValueApplier(const void *key, const void *value, void *con
 /// Troll the person/device identified by \c node (\c TDKSFNodeRef)
 - (void)troll:(id)node
 {
-    NSArray *items = @[[self fileURLForNode:node]];
+    NSURL *fileURL = [self fileURLForNode:node];
 
     TDKSFOperationClientContext clientContext = {
         .version = 0,
         .info = (__bridge void *)self,
     };
 
+
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, __trollface, __trollface_len, NULL);
+    CGImageRef fileIcon = CGImageCreateWithJPEGDataProvider(dataProvider, NULL, false, kCGRenderingIntentDefault);
+
     TDKSFOperationRef operation = TDKSFOperationCreate(kCFAllocatorDefault, kTDKSFOperationKindSender, NULL, NULL);
     TDKSFOperationSetClient(operation, &operationCallback, &clientContext);
+    TDKSFOperationSetProperty(operation, kTDKSFOperationItemsKey, (__bridge CFArrayRef)@[fileURL]);
+    TDKSFOperationSetProperty(operation, kTDKSFOperationFileIconKey, fileIcon);
     TDKSFOperationSetProperty(operation, kTDKSFOperationNodeKey, (__bridge TDKSFNodeRef)node);
-    TDKSFOperationSetProperty(operation, kTDKSFOperationItemsKey, (__bridge CFArrayRef)items);
     TDKSFOperationSetDispatchQueue(operation, dispatch_get_main_queue());
     TDKSFOperationResume(operation);
+
+    CGImageRelease(fileIcon);
+    CGDataProviderRelease(dataProvider);
 
     [self setOperation:(__bridge_transfer id)operation forNode:node];
 }

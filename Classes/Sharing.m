@@ -10,6 +10,7 @@
 
 CFStringRef kTDKSFBrowserKindAirDrop;
 CFStringRef kTDKSFOperationKindSender;
+CFStringRef kTDKSFOperationFileIconKey;
 CFStringRef kTDKSFOperationItemsKey;
 CFStringRef kTDKSFOperationNodeKey;
 
@@ -46,10 +47,11 @@ static void __TDKSharingInitialize(void *context) {
     }
 
 #define SYMBOLS \
-    WRAPPER(SFBrowserKindAirDrop)  \
-    WRAPPER(SFOperationKindSender) \
-    WRAPPER(SFOperationItemsKey)   \
-    WRAPPER(SFOperationNodeKey)    \
+    WRAPPER(SFBrowserKindAirDrop)   \
+    WRAPPER(SFOperationKindSender)  \
+    WRAPPER(SFOperationFileIconKey) \
+    WRAPPER(SFOperationItemsKey)    \
+    WRAPPER(SFOperationNodeKey)     \
 
 #define WRAPPER(X) CFSTR("k" #X),
     CFStringRef symbolNames[] = { SYMBOLS };
