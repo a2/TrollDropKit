@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TrollDropKit"
-  s.version = "0.2.0"
+  s.version = "0.3.0"
   s.summary = "Send trollfaces via AirDrop to nearby devices."
   s.description = "Scans for nearby devices with AirDrop enabled and sends them a trollface image (or a file of your choice)."
   s.homepage = "https://github.com/a2/TrollDropKit"
